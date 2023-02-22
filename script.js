@@ -59,15 +59,16 @@ function new_role() {
         let button = document.createElement("button");
         button.textContent = "×";
         button.classList.add("add_button");
-        button.onclick = function() { destroy(toString(paragraph_id_on)) };
+        button.onclick = "destroy(this.id)";
         paragraph.appendChild(button);
 
         paragraph.setAttribute("id", paragraph_id_on);
 
         body.appendChild(paragraph);
+
     }
 
-    paragraph_id_on += 1
+    paragraph_id_on++;
 }
 
 function destroy(id) {
