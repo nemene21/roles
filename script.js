@@ -4,6 +4,7 @@ let roles = [];
 
 let paragraph_id_on = 0
 
+
 function new_role() {
     let isPool = !confirm("Skup?");
     if (isPool == null) return
@@ -22,7 +23,7 @@ function new_role() {
         let button = document.createElement("button");
         button.textContent = "×";
         button.classList.add("add_button");
-        button.onclick = function() { destroy(toString(paragraph_id_on)) };
+        button.onclick = destroy;
         paragraph.appendChild(button);
 
         paragraph.setAttribute("id", paragraph_id_on);
@@ -59,7 +60,7 @@ function new_role() {
         let button = document.createElement("button");
         button.textContent = "×";
         button.classList.add("add_button");
-        button.onclick = "destroy(this.id)";
+        button.onclick = destroy;
         paragraph.appendChild(button);
 
         paragraph.setAttribute("id", paragraph_id_on);
@@ -71,8 +72,20 @@ function new_role() {
     paragraph_id_on++;
 }
 
-function destroy(id) {
-    document.getElementById(id).remove();
+var destroy = function() {
+    let duration = 200;
+
+    this.parentNode.animate([
+        {transform: "scale(1)"},
+        {transform: "scale(0)"}
+
+    ], {duration: duration});
+
+    setTimeout(destroyButtonsParent, duration, this);
+}
+
+function destroyButtonsParent(button) {
+    button.parentNode.remove();
 }
 
 function choose_roles() {
