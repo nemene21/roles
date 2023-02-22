@@ -14,7 +14,7 @@ body {
     z-index: 0;
 }
 
-#add_button {
+.add_button {
     font-size: xx-large;
     font-weight: bolder;
     background-color: rgb(50, 0, 168);
@@ -28,12 +28,12 @@ body {
     transform: rotate(0deg) scale(100%);
 }
 
-#add_button:hover {
+.add_button:hover {
     transform: rotate(90deg) scale(125%);
     background-color: rgb(80, 30, 218);
 }
 
-#add_button:active {
+.add_button:active {
     transform: rotate(90deg) scale(145%);
 }
 
@@ -64,4 +64,5 @@ body {
     color: white;
     font-size: xx-large;
     margin: 16px;
+    text-shadow: 0 3px 6px rgb(0, 0, 0);
 }
